@@ -16,3 +16,7 @@ yarn-error.log*
 .vercel
 next-env.d.ts
 *.tsbuildinfo
+CLAUDE.md
+# Bundle original do Figma Make, baixado apenas para consulta.
+# Veja _referencia-figma/LEIA-ME.md
+_referencia-figma/

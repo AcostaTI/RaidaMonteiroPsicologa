@@ -2,50 +2,46 @@ import Image from "next/image";
 import { Award, BookOpen, Heart, Users } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { siteConfig } from "@/config/site";
+import s from "./about.module.css";
 
 export function About() {
   return (
-    <section
-      id="sobre"
-      aria-labelledby="titulo-sobre"
-      className="scroll-mt-24 bg-muted/40 px-4 py-20"
-    >
-      <div className="mx-auto max-w-6xl">
+    <section id="sobre" aria-labelledby="titulo-sobre" className={s.section}>
+      <div className={s.inner}>
         <SectionHeading id="titulo-sobre" title="Sobre Mim" />
 
-        <div className="grid items-center gap-12 md:grid-cols-2">
-          <div className="space-y-6">
-            <p className="text-lg leading-relaxed text-foreground">
-              Sou a {siteConfig.name}, {siteConfig.role.toLowerCase()} clínica com mais de 10
-              anos de experiência no atendimento de adolescentes e adultos. Acredito
-              profundamente no poder transformador da terapia e no potencial de cada pessoa
-              para superar seus desafios.
+        <div className={s.grid}>
+          <div className={s.text}>
+            <p className={s.intro}>
+              Sou a {siteConfig.name}, {siteConfig.role.toLowerCase()} clínica com mais de{" "}
+              {siteConfig.stats.yearsOfExperience.replace("+", "")} anos de experiência no
+              atendimento de adolescentes e adultos. Acredito profundamente no poder
+              transformador da terapia e no potencial de cada pessoa para superar seus
+              desafios.
             </p>
-            <p className="leading-relaxed text-muted-foreground">
-              Minha abordagem é baseada na terapia cognitivo-comportamental (TCC), oferecendo
-              um espaço seguro e acolhedor onde você pode explorar seus pensamentos, emoções e
-              comportamentos de forma honesta e sem julgamentos.
+            <p className={s.paragraph}>
+              Minha abordagem é Humanista e Transpessoal.
             </p>
 
-            <dl className="grid grid-cols-2 gap-4 pt-4">
-              <div className="flex items-center gap-3">
-                <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                  <Award className="size-6 text-primary" aria-hidden="true" />
+            <dl className={s.stats}>
+              <div className={s.stat}>
+                <span className={s.statIconPrimary}>
+                  <Award size={24} aria-hidden="true" />
                 </span>
                 <div>
-                  <dt className="font-medium text-foreground">
+                  <dt className={s.statValue}>
                     {siteConfig.stats.yearsOfExperience} Anos
                   </dt>
-                  <dd className="text-sm text-muted-foreground">Experiência</dd>
+                  <dd className={s.statLabel}>Experiência</dd>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-secondary/25">
-                  <Users className="size-6 text-secondary-foreground" aria-hidden="true" />
+              <div className={s.stat}>
+                <span className={s.statIconSecondary}>
+                  <Users size={24} aria-hidden="true" />
                 </span>
                 <div>
-                  <dt className="font-medium text-foreground">{siteConfig.stats.patients}</dt>
-                  <dd className="text-sm text-muted-foreground">Pacientes</dd>
+                  <dt className={s.statValue}>{siteConfig.stats.patients}</dt>
+                  <dd className={s.statLabel}>Pacientes</dd>
                 </div>
               </div>
             </dl>
@@ -57,28 +53,27 @@ export function About() {
             width={1080}
             height={810}
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="h-[400px] w-full rounded-3xl object-cover shadow-xl"
+            className={s.photo}
           />
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          <article className="rounded-2xl border border-border bg-white p-6 shadow-sm">
-            <span className="mb-4 flex size-12 items-center justify-center rounded-full bg-primary/10">
-              <BookOpen className="size-6 text-primary" aria-hidden="true" />
+        <div className={s.cards}>
+          <article className={s.card}>
+            <span className={s.cardIconPrimary}>
+              <BookOpen size={24} aria-hidden="true" />
             </span>
-            <h3 className="mb-2 text-xl text-foreground">Formação Acadêmica</h3>
-            <p className="text-muted-foreground">
-              Graduação em Psicologia pela USP, especialização em Terapia
-              Cognitivo-Comportamental e mestrado em Psicologia Clínica.
+            <h3 className={s.cardTitle}>Formação Acadêmica</h3>
+            <p className={s.cardText}>
+              Graduação em Psicologia pela Universidade da Amazônia - UNAMA, Formação em Psicologia Humanista Rogeriana, Especialização: Sexologia Humana, Terapia Sexual e de Casal, Neuropsicologia e Avalaiação Psicologica.
             </p>
           </article>
 
-          <article className="rounded-2xl border border-border bg-white p-6 shadow-sm">
-            <span className="mb-4 flex size-12 items-center justify-center rounded-full bg-secondary/25">
-              <Heart className="size-6 text-secondary-foreground" aria-hidden="true" />
+          <article className={s.card}>
+            <span className={s.cardIconSecondary}>
+              <Heart size={24} aria-hidden="true" />
             </span>
-            <h3 className="mb-2 text-xl text-foreground">Abordagem Humanizada</h3>
-            <p className="text-muted-foreground">
+            <h3 className={s.cardTitle}>Abordagem Humanizada</h3>
+            <p className={s.cardText}>
               Acredito na escuta ativa, no acolhimento genuíno e na construção de uma relação
               terapêutica baseada na confiança e no respeito.
             </p>

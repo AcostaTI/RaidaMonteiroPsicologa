@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { PsiMark } from "@/components/psi-mark";
 import { siteConfig } from "@/config/site";
+import s from "./brand.module.css";
 
 type BrandProps = {
   /** "light" inverte as cores do texto para uso sobre o rodape escuro. */
@@ -28,18 +29,16 @@ export function Brand({
   tone = "brand",
   subtitle,
   hasLogo = false,
-  className = "",
+  className,
 }: BrandProps) {
   // Rede de seguranca: cobre o caso de o arquivo sumir depois do build.
   const [imageFailed, setImageFailed] = useState(false);
   const showImage = hasLogo && !imageFailed;
-
-  const nameColor = tone === "light" ? "text-white" : "text-foreground";
-  const roleColor = tone === "light" ? "text-white/70" : "text-muted-foreground";
+  const isLight = tone === "light";
 
   return (
-    <span className={`flex items-center gap-3 ${className}`}>
-      <span className="relative flex size-11 shrink-0 items-center justify-center">
+    <span className={className ? `${s.brand} ${className}` : s.brand}>
+      <span className={s.markSlot}>
         {showImage ? (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
@@ -47,19 +46,21 @@ export function Brand({
             alt=""
             width={44}
             height={44}
-            className="size-full object-contain"
+            className={s.markImage}
             onError={() => setImageFailed(true)}
           />
         ) : (
-          <PsiMark className="size-full" tone={tone} />
+          <PsiMark className={s.markImage} tone={tone} />
         )}
       </span>
 
-      <span className="flex flex-col leading-tight">
-        <span className={`font-serif text-lg font-medium ${nameColor}`}>
+      <span className={s.text}>
+        <span className={isLight ? `${s.name} ${s.nameLight}` : s.name}>
           {siteConfig.name}
         </span>
-        <span className={`text-sm ${roleColor}`}>{subtitle ?? siteConfig.role}</span>
+        <span className={isLight ? `${s.role} ${s.roleLight}` : s.role}>
+          {subtitle ?? siteConfig.role}
+        </span>
       </span>
     </span>
   );

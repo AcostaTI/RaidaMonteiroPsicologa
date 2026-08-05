@@ -8,7 +8,7 @@ import { hasLogoFile } from "@/lib/logo";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen">
+    <>
       <Header hasLogo={hasLogoFile} />
       <main id="conteudo">
         <Hero />
@@ -17,6 +17,6 @@ export default function HomePage() {
         <Contact />
       </main>
       <Footer />
-    </div>
+    </>
   );
 }

@@ -1,0 +1,63 @@
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/*
+ * Slot quadrado para o simbolo, seja PNG ou SVG.
+ *
+ * O tamanho vem de --brand-mark-size, que herda: quem usa <Brand> pode
+ * redefinir a variavel na propria classe (veja .brand em header.module.css)
+ * sem precisar alcancar esta classe de fora do modulo.
+ */
+.markSlot {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--brand-mark-size, 2.75rem);
+  height: var(--brand-mark-size, 2.75rem);
+}
+
+.markImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/*
+ * O bloco de texto ocupa exatamente a altura do simbolo, centralizado, para
+ * que nome e funcao fiquem alinhados com o topo e a base da logo.
+ */
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: var(--brand-mark-size, 2.75rem);
+  line-height: var(--leading-tight);
+}
+
+/* Como --brand-mark-size, os corpos abaixo podem ser redefinidos por quem usa
+   <Brand>, para a tipografia acompanhar o tamanho do simbolo. */
+.name {
+  font-family: var(--family-serif);
+  font-size: var(--brand-name-size, var(--text-lg));
+  font-weight: 500;
+  color: var(--color-foreground);
+}
+
+.role {
+  font-size: var(--brand-role-size, var(--text-sm));
+  color: var(--color-muted-foreground);
+}
+
+/* Variante para uso sobre o rodape escuro. */
+.nameLight {
+  color: var(--on-dark-strong);
+}
+
+.roleLight {
+  color: var(--on-dark-muted);
+}

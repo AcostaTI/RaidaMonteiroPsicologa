@@ -1,0 +1,111 @@
+.section {
+  composes: sectionMuted from "../styles/shared.module.css";
+}
+
+.inner {
+  composes: container from "../styles/shared.module.css";
+}
+
+.grid {
+  display: grid;
+  align-items: center;
+  gap: 3rem;
+}
+
+@media (min-width: 48rem) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.text {
+  composes: stack from "../styles/shared.module.css";
+}
+
+.intro {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-foreground);
+}
+
+.paragraph {
+  line-height: var(--leading-relaxed);
+  color: var(--color-muted-foreground);
+}
+
+/* Par de indicadores: anos de experiencia e pacientes atendidos. */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.statIconPrimary {
+  composes: iconCirclePrimary from "../styles/shared.module.css";
+}
+
+.statIconSecondary {
+  composes: iconCircleSecondary from "../styles/shared.module.css";
+}
+
+.statValue {
+  font-weight: 500;
+  color: var(--color-foreground);
+}
+
+.statLabel {
+  font-size: var(--text-sm);
+  color: var(--color-muted-foreground);
+}
+
+.photo {
+  width: 100%;
+  height: 400px;
+  border-radius: var(--radius-3xl);
+  object-fit: cover;
+  box-shadow: var(--shadow-xl);
+}
+
+/* Dois cartoes abaixo: formacao e abordagem. */
+.cards {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 48rem) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.card {
+  composes: card from "../styles/shared.module.css";
+}
+
+.cardIconPrimary {
+  composes: iconCirclePrimary from "../styles/shared.module.css";
+  margin-bottom: 1rem;
+}
+
+.cardIconSecondary {
+  composes: iconCircleSecondary from "../styles/shared.module.css";
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  margin-bottom: 0.5rem;
+  font-size: var(--text-xl);
+  color: var(--color-foreground);
+}
+
+.cardText {
+  color: var(--color-muted-foreground);
+}

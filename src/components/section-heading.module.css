@@ -1,0 +1,33 @@
+.wrapper {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-size: var(--text-3xl);
+  color: var(--color-foreground);
+}
+
+@media (min-width: 48rem) {
+  .title {
+    font-size: var(--text-4xl);
+  }
+}
+
+/* Filete em degrade verde -> lavanda que marca cada secao. */
+.divider {
+  width: 5rem;
+  height: 0.25rem;
+  margin-inline: auto;
+  border-radius: var(--radius-full);
+  background-image: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+}
+
+.subtitle {
+  max-width: 42rem;
+  margin-inline: auto;
+  margin-top: 1.5rem;
+  font-size: var(--text-lg);
+  color: var(--color-muted-foreground);
+}

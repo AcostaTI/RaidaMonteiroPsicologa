@@ -1,0 +1,168 @@
+.section {
+  composes: sectionMuted from "../styles/shared.module.css";
+}
+
+.inner {
+  composes: container from "../styles/shared.module.css";
+}
+
+.grid {
+  display: grid;
+  gap: 3rem;
+}
+
+@media (min-width: 48rem) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.details {
+  composes: stackLoose from "../styles/shared.module.css";
+}
+
+.blockTitle {
+  margin-bottom: 1.5rem;
+  font-size: var(--text-xl);
+  color: var(--color-foreground);
+}
+
+.socialTitle {
+  composes: blockTitle;
+  margin-bottom: 1rem;
+}
+
+.items {
+  composes: stackTight from "../styles/shared.module.css";
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.itemIconPrimary {
+  composes: iconCirclePrimary from "../styles/shared.module.css";
+}
+
+.itemLabel {
+  font-weight: 500;
+  color: var(--color-foreground);
+}
+
+.itemValue {
+  color: var(--color-muted-foreground);
+}
+
+.itemLink {
+  composes: itemValue;
+  transition: color var(--transition);
+}
+
+.itemLink:hover {
+  color: var(--color-primary);
+}
+
+/* Cada faixa de horario em sua propria linha. */
+.hoursRow {
+  display: block;
+}
+
+/* --- Redes sociais -------------------------------------------------------- */
+
+.socialList {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+  color: #ffffff;
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition);
+}
+
+.socialLink:hover {
+  transform: scale(1.1);
+}
+
+.instagram {
+  composes: socialLink;
+  background-image: linear-gradient(to bottom right, #a855f7, #ec4899);
+}
+
+.facebook {
+  composes: socialLink;
+  background-color: #2563eb;
+}
+
+/* --- Cartao de agendamento ----------------------------------------------- */
+
+.cta {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-3xl);
+  background-color: var(--color-card);
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.ctaHeader {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.ctaIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  margin-inline: auto;
+  margin-bottom: 1rem;
+  border-radius: var(--radius-full);
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  color: #ffffff;
+}
+
+.ctaTitle {
+  margin-bottom: 0.5rem;
+  font-size: var(--text-xl);
+  color: var(--color-foreground);
+}
+
+.ctaText {
+  color: var(--color-muted-foreground);
+}
+
+.ctaButton {
+  composes: btnPrimary from "../styles/shared.module.css";
+  width: 100%;
+}
+
+.ctaImage {
+  width: 100%;
+  height: 12rem;
+  margin-top: 2rem;
+  border-radius: var(--radius-2xl);
+  object-fit: cover;
+}
+
+.ctaNote {
+  margin-top: 1.5rem;
+  border-radius: var(--radius-2xl);
+  background-color: var(--tint-muted-60);
+  padding: 1rem;
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--color-muted-foreground);
+}

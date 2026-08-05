@@ -17,7 +17,7 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const pageTitle = `${siteConfig.name} | ${siteConfig.role} Clínica em ${siteConfig.address.city}`;
+const pageTitle = `${siteConfig.name} | ${siteConfig.role} Atendimento Online e em Belém do Pará`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -33,11 +33,11 @@ export const metadata: Metadata = {
   category: "Saúde",
   keywords: [
     "psicóloga",
-    `psicóloga em ${siteConfig.address.city}`,
+    "psicóloga em Belém do Pará",
     "psicóloga clínica",
     "terapia cognitivo-comportamental",
-    "TCC",
     "terapia online",
+    "terapia de casal",
     "atendimento psicológico",
     "tratamento de ansiedade",
     "tratamento de depressão",
@@ -76,7 +76,6 @@ export const metadata: Metadata = {
   },
   formatDetection: {
     telephone: true,
-    address: true,
     email: true,
   },
 };
@@ -94,10 +93,8 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${inter.variable} ${cormorant.variable}`}>
       <body>
-        <a
-          href="#conteudo"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-primary focus:px-5 focus:py-3 focus:text-primary-foreground"
-        >
+        {/* Estilos de .skip-link em src/styles/base.css. */}
+        <a href="#conteudo" className="skip-link">
           Pular para o conteúdo
         </a>
         {children}

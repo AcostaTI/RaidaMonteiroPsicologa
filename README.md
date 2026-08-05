@@ -1,8 +1,8 @@
 # Dra. Raida Monteiro — Site institucional
 
 Transcrição do protótipo do Figma (`stray-gloss-32882059.figma.site`) para Next.js 15,
-com App Router, TypeScript e Tailwind CSS v4. Conteúdo em pt-BR, responsivo e com
-camada de SEO técnica.
+com App Router, TypeScript e CSS puro (CSS Modules, sem framework). Conteúdo em pt-BR,
+responsivo e com camada de SEO técnica.
 
 ## Rodando
 
@@ -26,7 +26,6 @@ Google indexar informação errada.
 | `crp` | `CRP 06/123456` |
 | `phoneDigits` | `5511999999999` |
 | `email` | `contato@drapaula.com.br` |
-| `address` | Av. Paulista, 1000 — São Paulo/SP (+ latitude/longitude) |
 | `social.instagram` / `social.facebook` | links genéricos |
 | `images` | 3 fotos de banco de imagens (Unsplash) |
 
@@ -54,19 +53,40 @@ src/
   app/
     layout.tsx            metadados, fontes, JSON-LD, skip-link
     page.tsx              composição da página
-    globals.css           tema Tailwind v4 com a paleta da marca
+    globals.css           só faz @import de styles/tokens.css e styles/base.css
     icon.svg              favicon (símbolo Ψ)
     opengraph-image.tsx   cartão de compartilhamento, gerado no build
     sitemap.ts robots.ts  gerados automaticamente
-  components/             header, hero, about, services, contact, footer, brand…
+  styles/
+    tokens.css            custom properties: cores, tipografia, raios, sombras
+    base.css              reset, elementos base, .sr-only, .skip-link
+    shared.module.css     .container .section .btnPrimary .card .iconCircle…
+  components/
+    header.tsx            + header.module.css  (o padrão de todos)
+    hero.tsx  about.tsx  services.tsx  contact.tsx  footer.tsx
+    brand.tsx  psi-mark.tsx  section-heading.tsx  json-ld.tsx
   config/site.ts          ← todo dado editável vive aqui
   data/services.ts        áreas de atuação + etapas das sessões
   lib/logo.ts             detecta public/logo.png em build
 ```
 
+### CSS
+
+Cada componente tem seu `*.module.css` ao lado. Os módulos puxam as formas repetidas de
+`styles/shared.module.css` com `composes`, então o componente importa só o próprio módulo:
+
+```css
+.primaryCta { composes: btnPrimary from "../styles/shared.module.css"; }
+```
+
+Não há `postcss.config.mjs` nem `tailwind.config.js` — o pipeline nativo do Next resolve
+`@import` e CSS Modules. Cores, espaços, raios e sombras saem de `var(--token)`
+definido em `styles/tokens.css`; ajustar a identidade visual é editar aquele arquivo.
+
 ## Paleta
 
-Extraída do CSS do protótipo original — coincide com as cores da logo.
+Extraída do CSS do protótipo original — coincide com as cores da logo. Definida em
+`src/styles/tokens.css`.
 
 | Token | Hex |
 | --- | --- |
@@ -90,7 +110,7 @@ estruturados e com a navegação em `<button onClick>` (invisível para buscador
   ([validar aqui](https://search.google.com/test/rich-results))
 - `sitemap.xml` e `robots.txt` gerados pelo App Router
 - HTML semântico: um único `<h1>`, hierarquia h2/h3/h4 sem saltos, `<section>` com
-  `aria-labelledby`, `<address>`, `<nav>`, `<main>`
+  `aria-labelledby`, `<nav>`, `<main>`
 - Navegação por âncoras `<a href="#...">` reais, rastreáveis, com rolagem suave via CSS
 - Telefone como `tel:`, e-mail como `mailto:`, endereço linkado para o Google Maps
 - `next/image` com AVIF/WebP, `sizes` e `priority` na imagem de LCP
@@ -100,6 +120,6 @@ estruturados e com a navegação em `<button onClick>` (invisível para buscador
 ### Correção de bug herdada do protótipo
 
 Os cards de "Áreas de Atuação" montavam as classes por interpolação
-(`` bg-${cor}/10 ``). O Tailwind faz análise estática do código e só gera classes que
-consegue ler por inteiro, então os ícones ficavam sem cor de fundo no site original.
-Aqui as variantes estão escritas por extenso em `src/components/services.tsx`.
+(`` bg-${cor}/10 ``), o que nunca gerava CSS — os ícones ficavam sem cor de fundo no site
+original. Aqui a chave do dado é traduzida para a classe do módulo por um mapa explícito
+(`accentClass` em `src/components/services.tsx`).

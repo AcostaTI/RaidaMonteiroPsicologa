@@ -1,0 +1,121 @@
+.section {
+  padding-inline: var(--container-pad);
+  /* Padding superior maior: abre espaco para o header fixo. */
+  padding-top: 8rem;
+  padding-bottom: var(--section-pad);
+  scroll-margin-top: var(--anchor-offset);
+}
+
+.grid {
+  composes: container from "../styles/shared.module.css";
+  display: grid;
+  align-items: center;
+  gap: 3rem;
+}
+
+@media (min-width: 48rem) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.content {
+  composes: stack from "../styles/shared.module.css";
+}
+
+/* Selo com o registro no CRP. */
+.badge {
+  display: inline-block;
+  border-radius: var(--radius-full);
+  background-color: var(--tint-secondary-25);
+  color: var(--color-secondary-foreground);
+  padding: 0.5rem 1rem;
+}
+
+.title {
+  font-size: var(--text-4xl);
+  line-height: var(--leading-tight);
+  color: var(--color-foreground);
+}
+
+@media (min-width: 48rem) {
+  .title {
+    font-size: var(--text-5xl);
+  }
+}
+
+@media (min-width: 64rem) {
+  .title {
+    font-size: var(--text-6xl);
+  }
+}
+
+/* Bloco de paragrafos de apresentacao (siteConfig.intro). */
+.lead {
+  composes: stackTight from "../styles/shared.module.css";
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-muted-foreground);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .actions {
+    flex-direction: row;
+  }
+}
+
+.primaryCta {
+  composes: btnPrimary from "../styles/shared.module.css";
+}
+
+.secondaryCta {
+  composes: btnOutline from "../styles/shared.module.css";
+}
+
+.figure {
+  position: relative;
+}
+
+/* Halos desfocados atras do retrato, herdados do layout original. */
+.halo {
+  position: absolute;
+  width: 18rem;
+  height: 18rem;
+  border-radius: var(--radius-full);
+  filter: blur(64px);
+}
+
+.haloTop {
+  composes: halo;
+  top: -1.5rem;
+  left: -1.5rem;
+  background-color: var(--tint-secondary-25);
+}
+
+.haloBottom {
+  composes: halo;
+  right: -1.5rem;
+  bottom: -1.5rem;
+  background-color: var(--tint-primary-25);
+}
+
+.portrait {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: var(--radius-3xl);
+  object-fit: cover;
+  box-shadow: var(--shadow-2xl);
+}
+
+@media (min-width: 48rem) {
+  .portrait {
+    height: 500px;
+  }
+}

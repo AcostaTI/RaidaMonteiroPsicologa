@@ -25,18 +25,12 @@ export function JsonLd() {
       email: siteConfig.email,
       priceRange: "$$",
       currenciesAccepted: "BRL",
+      // Cidade/estado sem rua: sustenta a busca local sem expor o consultorio.
       address: {
         "@type": "PostalAddress",
-        streetAddress: siteConfig.address.street,
-        addressLocality: siteConfig.address.city,
-        addressRegion: siteConfig.address.state,
-        postalCode: siteConfig.address.postalCode,
-        addressCountry: siteConfig.address.country,
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: siteConfig.address.latitude,
-        longitude: siteConfig.address.longitude,
+        addressLocality: siteConfig.location.city,
+        addressRegion: siteConfig.location.state,
+        addressCountry: siteConfig.location.country,
       },
       openingHoursSpecification: siteConfig.openingHoursSchema.map((slot) => ({
         "@type": "OpeningHoursSpecification",
@@ -45,8 +39,11 @@ export function JsonLd() {
         closes: slot.closes,
       })),
       sameAs: [siteConfig.social.instagram, siteConfig.social.facebook].filter(Boolean),
-      // Atendimento online alem do presencial.
-      areaServed: { "@type": "Country", name: "Brasil" },
+      // Presencial na cidade, online no resto do pais.
+      areaServed: [
+        { "@type": "City", name: `${siteConfig.location.city}, ${siteConfig.location.state}` },
+        { "@type": "Country", name: "Brasil" },
+      ],
       availableService: services.map((service) => ({
         "@type": "MedicalTherapy",
         name: service.title,

@@ -1,0 +1,118 @@
+/*
+ * PADROES COMPARTILHADOS
+ * ---------------------------------------------------------------------------
+ * Formas que repetem em mais de uma secao. Os modulos dos componentes puxam
+ * daqui com `composes`, entao o componente importa somente o proprio modulo.
+ *
+ *   .minhaClasse { composes: btnPrimary from "../styles/shared.module.css"; }
+ *
+ * `composes` precisa ser a primeira declaracao da regra.
+ */
+
+/* Faixa central de conteudo. O padding horizontal fica na secao, nao aqui. */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+/* Secao padrao da pagina. */
+.section {
+  padding-block: var(--section-pad);
+  padding-inline: var(--container-pad);
+  scroll-margin-top: var(--anchor-offset);
+}
+
+/* Variante com fundo levemente esverdeado, alternada entre secoes. */
+.sectionMuted {
+  composes: section;
+  background-color: var(--tint-muted-40);
+}
+
+/* --- Botoes ------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-full);
+  padding: 1rem 2rem;
+  text-align: center;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.btnPrimary {
+  composes: btn;
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  box-shadow: var(--shadow-lg);
+}
+
+.btnPrimary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btnOutline {
+  composes: btn;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-card);
+  color: var(--color-foreground);
+}
+
+.btnOutline:hover {
+  background-color: var(--color-muted);
+}
+
+/* --- Circulo de icone ---------------------------------------------------- */
+
+/*
+ * O icone dentro herda a cor via `currentColor`, entao a variante define
+ * `color` e o SVG do lucide acompanha sem precisar de classe propria.
+ */
+.iconCircle {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+}
+
+.iconCirclePrimary {
+  composes: iconCircle;
+  background-color: var(--tint-primary-10);
+  color: var(--color-primary);
+}
+
+.iconCircleSecondary {
+  composes: iconCircle;
+  background-color: var(--tint-secondary-25);
+  color: var(--color-secondary-foreground);
+}
+
+/* --- Cartao ------------------------------------------------------------- */
+
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  background-color: var(--color-card);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- Utilitarios de fluxo ------------------------------------------------ */
+
+/* Espaco vertical entre filhos diretos, sem margem sobrando nas pontas. */
+.stack > * + * {
+  margin-top: 1.5rem;
+}
+
+.stackLoose > * + * {
+  margin-top: 2rem;
+}
+
+.stackTight > * + * {
+  margin-top: 1rem;
+}

@@ -20,7 +20,7 @@ export const siteUrl = (
  * Numero de telefone. Preencha apenas `digits` (somente numeros, com DDI 55).
  * Os outros formatos sao derivados automaticamente.
  */
-const phoneDigits = "5511999999999"; // TODO: numero real (55 + DDD + numero)
+const phoneDigits = "5591983163213"; // TODO: numero real (55 + DDD + numero)
 
 const ddd = phoneDigits.slice(2, 4);
 const localNumber = phoneDigits.slice(4);
@@ -36,8 +36,28 @@ export const siteConfig = {
   crp: "CRP 10/848",
 
   tagline: "Um espaço de escuta, acolhimento e transformação.",
+
+  /**
+   * Frase unica de resumo. Alimenta <meta name="description">, Open Graph e o
+   * JSON-LD — NAO e o texto exibido na Hero. Buscadores cortam por volta de
+   * 155 caracteres, entao mantenha curta e sem quebras de linha.
+   */
   description:
-    "Psicóloga clínica especializada em terapia cognitivo-comportamental, oferecendo atendimento humanizado para adultos e adolescentes.",
+    "Psicóloga clínica em Belém (PA). Um espaço de escuta, acolhimento e transformação, com atendimento presencial e online para adolescentes e adultos.",
+
+  /**
+   * Texto de apresentacao da Hero. Um item por paragrafo: o componente
+   * renderiza um <p> para cada um.
+   *
+   * Nao use "\n" para separar paragrafos — o HTML colapsa quebras de linha em
+   * um unico espaco e o texto sairia corrido.
+   */
+  intro: [
+    "Seja muito bem-vindo(a).",
+    "Se você chegou até aqui, talvez esteja buscando compreensão, apoio ou um novo olhar para sua vida. Quero que saiba que este é um espaço de acolhimento, respeito e escuta, onde sua história será recebida sem julgamentos.",
+    "Acredito no potencial humano de crescimento e transformação. Juntos, podemos construir caminhos que favoreçam o autoconhecimento, o equilíbrio emocional e uma vida mais consciente e plena.",
+    "Será um prazer caminhar ao seu lado nessa jornada.",
+  ],
 
   phone: {
     /** Formato de exibicao: (11) 99999-9999 */
@@ -51,17 +71,19 @@ export const siteConfig = {
   /** TODO: e-mail real. */
   email: "contato@drapaula.com.br",
 
-  /** TODO: endereco real do consultorio. */
-  address: {
-    street: "Av. Paulista, 1000 - Conjunto 808",
-    district: "Bela Vista",
-    city: "São Paulo",
-    state: "SP",
-    postalCode: "01310-100",
+  /**
+   * Localizacao do atendimento presencial, sem rua.
+   *
+   * Um PostalAddress apenas com cidade/estado e valido no schema.org e ja
+   * sustenta a busca local ("psicóloga em Belém"), sem expor o endereco do
+   * consultorio. Se um dia houver endereco publico, acrescente `street` e
+   * `postalCode` aqui e no PostalAddress em components/json-ld.tsx.
+   */
+  location: {
+    city: "Belém",
+    state: "PA",
+    /** Codigo de pais em ISO 3166-1 alpha-2. */
     country: "BR",
-    /** Coordenadas do consultorio. Ajudam no SEO local (Google Maps / busca local). */
-    latitude: -23.5613,
-    longitude: -46.6565,
   },
 
   /** Horarios exibidos na secao de contato. */
@@ -78,8 +100,8 @@ export const siteConfig = {
 
   /** TODO: perfis reais. Deixe a string vazia para ocultar o icone no site. */
   social: {
-    instagram: "https://instagram.com",
-    facebook: "https://facebook.com",
+    instagram: "https://www.instagram.com/psi.raidamonteiro/",
+    facebook: "https://www.facebook.com/raida.monteiro.7",
   },
 
   stats: {
@@ -96,7 +118,7 @@ export const siteConfig = {
     portrait:
       "https://images.unsplash.com/photo-1758273241086-f3585ef8c2f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmZW1hbGUlMjBwc3ljaG9sb2dpc3QlMjBvZmZpY2UlMjBwcm9mZXNzaW9uYWx8ZW58MXx8fHwxNzgxNTUyNzU2fDA&ixlib=rb-4.1.0&q=80&w=1080",
     therapy:
-      "https://images.unsplash.com/photo-1551847677-dc82d764e1eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aGVyYXB5JTIwc2Vzc2lvbiUyMHBlYWNlZnVsJTIwY2FsbXxlbnwxfHx8fDE3ODE1NTI3NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "/perfil.png",
     wellness:
       "https://images.unsplash.com/photo-1506126613408-eca07ce68773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZW50YWwlMjBoZWFsdGglMjB3ZWxsbmVzcyUyMG1lZGl0YXRpb258ZW58MXx8fHwxNzgxNTUyNzU2fDA&ixlib=rb-4.1.0&q=80&w=1080",
   },
@@ -107,9 +129,6 @@ export function whatsappUrl(message?: string): string {
   const base = `https://wa.me/${siteConfig.phone.whatsapp}`;
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }
-
-/** Endereco em uma linha, para o rodape. */
-export const addressOneLine = `${siteConfig.address.street} - ${siteConfig.address.city}/${siteConfig.address.state}`;
 
 /** Itens de navegacao. Os href sao ancoras reais, rastreaveis por buscadores. */
 export const navItems = [

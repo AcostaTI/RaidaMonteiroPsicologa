@@ -1,0 +1,83 @@
+/*
+ * TOKENS DA MARCA
+ * ---------------------------------------------------------------------------
+ * Valores extraidos do prototipo original do Figma. Coincidem com as cores da
+ * logo: verde salvia e lavanda.
+ *
+ * Os "tints" sao as versoes translucidas usadas em fundos de icone, halos e
+ * faixas de secao. Estao pre-calculados aqui em vez de espalhados pelo CSS
+ * para que ajustar uma opacidade seja mudar uma linha.
+ *
+ * Breakpoints (nao podem virar custom property porque @media nao aceita var):
+ *   40rem = 640px   |   48rem = 768px   |   64rem = 1024px
+ */
+
+:root {
+  /* Cores base */
+  --color-primary: #8fa894;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #c9b8d4;
+  --color-secondary-foreground: #3a4d3f;
+  --color-foreground: #3a4d3f;
+  --color-background: #faf9f7;
+  --color-card: #ffffff;
+  --color-muted: #f0ede9;
+  --color-muted-foreground: #6b6b78;
+  --color-border: rgb(143 168 148 / 0.2);
+
+  /* Estados */
+  --color-primary-hover: rgb(143 168 148 / 0.9);
+
+  /* Tints: primary = 143 168 148, secondary = 201 184 212, muted = 240 237 233 */
+  --tint-primary-10: rgb(143 168 148 / 0.1);
+  --tint-primary-25: rgb(143 168 148 / 0.25);
+  --tint-secondary-20: rgb(201 184 212 / 0.2);
+  --tint-secondary-25: rgb(201 184 212 / 0.25);
+  --tint-muted-40: rgb(240 237 233 / 0.4);
+  --tint-muted-60: rgb(240 237 233 / 0.6);
+
+  /* Sobre o rodape escuro */
+  --on-dark-strong: #ffffff;
+  --on-dark-muted: rgb(255 255 255 / 0.7);
+  --on-dark-surface: rgb(255 255 255 / 0.1);
+  --on-dark-surface-hover: rgb(255 255 255 / 0.2);
+  --on-dark-border: rgb(255 255 255 / 0.1);
+
+  /* Tipografia. As variaveis --font-* vem do next/font em layout.tsx. */
+  --family-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --family-serif: var(--font-cormorant), ui-serif, Georgia, "Times New Roman", serif;
+
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  /* Raios */
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+  /* Layout */
+  --container-max: 72rem;
+  --container-pad: 1rem;
+  --section-pad: 5rem;
+  /* Compensa o header fixo ao navegar por ancora. Header = logo (3.5rem) + padding (1.5rem). */
+  --anchor-offset: 6.5rem;
+
+  --transition: 150ms ease;
+}
