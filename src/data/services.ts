@@ -65,19 +65,3 @@ export const services: Service[] = [
     accent: "secondary",
   },
 ];
-
-/** Etapas do acompanhamento, exibidas no bloco "Como Funcionam as Sessões?". */
-export const sessionSteps = [
-  {
-    title: "Primeira Consulta",
-    description: "Conhecemos suas necessidades e objetivos terapêuticos",
-  },
-  {
-    title: "Planejamento",
-    description: "Criamos juntos um plano terapêutico personalizado",
-  },
-  {
-    title: "Acompanhamento",
-    description: "Sessões semanais com foco no seu desenvolvimento",
-  },
-] as const;

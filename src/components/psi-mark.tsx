@@ -9,15 +9,15 @@ type PsiMarkProps = {
 
 /**
  * Recriacao vetorial do simbolo da logo: o Psi (letra que simboliza a
- * Psicologia) desenhado em verde salvia, com a chama em lavanda ao centro.
+ * Psicologia) desenhado em verde, com a chama em bege ao centro.
  *
  * Serve como fallback quando /public/logo.png ainda nao foi salvo, e tambem
  * como favicon. Por ser SVG, fica nitido em qualquer tamanho e nao pesa nada.
  */
 export function PsiMark({ className, tone = "brand" }: PsiMarkProps) {
-  const stem = tone === "light" ? "#cddbd0" : "#8fa894";
-  const flameFront = tone === "light" ? "#e2d8ec" : "#c9b8d4";
-  const flameBack = tone === "light" ? "#cbbcdd" : "#b0a0c4";
+  const stem = tone === "light" ? "#b7c7b3" : "#587350";
+  const flameFront = tone === "light" ? "#ede3d2" : "#dccbb4";
+  const flameBack = tone === "light" ? "#dccbb4" : "#c6b296";
 
   return (
     <svg
@@ -27,7 +27,7 @@ export function PsiMark({ className, tone = "brand" }: PsiMarkProps) {
       aria-hidden="true"
       focusable="false"
     >
-      {/* Chama central em lavanda: duas linguas espelhadas subindo do centro. */}
+      {/* Chama central em bege: duas linguas espelhadas subindo do centro. */}
       <path d="M49.4 63C38.6 50.4 41.6 31 54.4 15.5c2.6 14.4-4.2 22.6-5 47.5Z" fill={flameBack} />
       <path d="M50.6 63C61.4 50.4 58.4 31 45.6 15.5c-2.6 14.4 4.2 22.6 5 47.5Z" fill={flameFront} />
 

@@ -69,14 +69,19 @@
 /*
  * O icone dentro herda a cor via `currentColor`, entao a variante define
  * `color` e o SVG do lucide acompanha sem precisar de classe propria.
+ *
+ * Para mudar o tamanho, declare `--icon-circle-size` na classe do consumidor.
+ * Sobrescrever `width`/`height` direto nao funciona de forma confiavel: as duas
+ * classes tem a mesma especificidade e a ordem dos arquivos no bundle decidiria
+ * quem vence.
  */
 .iconCircle {
   display: flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 3rem;
-  height: 3rem;
+  width: var(--icon-circle-size, 3rem);
+  height: var(--icon-circle-size, 3rem);
   border-radius: var(--radius-full);
 }
 

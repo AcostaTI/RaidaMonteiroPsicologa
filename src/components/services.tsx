@@ -1,5 +1,6 @@
 import { SectionHeading } from "@/components/section-heading";
-import { sessionSteps, services } from "@/data/services";
+import { pillars } from "@/data/pillars";
+import { services } from "@/data/services";
 import s from "./services.module.css";
 
 /**
@@ -13,13 +14,6 @@ const accentClass = {
   primary: s.accentPrimary,
   secondary: s.accentSecondary,
 } as const;
-
-/** Cor do numero de cada etapa, alternando verde e lavanda. */
-const stepNumberClass = [
-  s.stepNumberPrimary,
-  s.stepNumberSecondary,
-  s.stepNumberPrimary,
-] as const;
 
 export function Services() {
   return (
@@ -49,20 +43,29 @@ export function Services() {
           })}
         </ul>
 
-        <div className={s.steps}>
-          <h3 className={s.stepsTitle}>Como Funcionam as Sessões?</h3>
+        {/*
+          Pilares da pratica. O `aria-hidden` fica no <span> em volta, e nao no
+          icone: assim o tipo `PillarIcon` nao precisa declarar props de ARIA e
+          o `SpiralMark` continua intercambiavel com os icones do lucide.
+        */}
+        <div className={s.pillars}>
+          <h3 className={s.pillarsTitle}>Pilares da Minha Prática</h3>
 
-          <ol className={s.stepsList}>
-            {sessionSteps.map((step, index) => (
-              <li key={step.title}>
-                <span className={stepNumberClass[index]} aria-hidden="true">
-                  {index + 1}
-                </span>
-                <h4 className={s.stepTitle}>{step.title}</h4>
-                <p className={s.stepText}>{step.description}</p>
-              </li>
-            ))}
-          </ol>
+          <ul className={s.pillarsList}>
+            {pillars.map((pillar) => {
+              const Icon = pillar.icon;
+
+              return (
+                <li key={pillar.title} className={s.pillar}>
+                  <span className={s.pillarIcon} aria-hidden="true">
+                    <Icon size={40} />
+                  </span>
+                  <h4 className={s.pillarTitle}>{pillar.title}</h4>
+                  <p className={s.pillarText}>{pillar.description}</p>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
     </section>

@@ -35,8 +35,6 @@
 
 /* Par de indicadores: anos de experiencia e pacientes atendidos. */
 .stats {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   padding-top: 1rem;
 }
@@ -67,7 +65,7 @@
 
 .photo {
   width: 100%;
-  height: 400px;
+  height: 665px;
   border-radius: var(--radius-3xl);
   object-fit: cover;
   box-shadow: var(--shadow-xl);
@@ -108,4 +106,17 @@
 
 .cardText {
   color: var(--color-muted-foreground);
+}
+
+/* Rotulo da lista de especializacoes: aproxima o texto dos itens abaixo. */
+.cardLabel {
+  composes: cardText;
+  margin-top: 0.75rem;
+}
+
+.cardList {
+  composes: cardText;
+  list-style: disc;
+  margin-top: 0.5rem;
+  margin-left: 1.5rem;
 }

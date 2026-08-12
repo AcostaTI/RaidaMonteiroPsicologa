@@ -109,15 +109,6 @@ export function Contact() {
               Conversar no WhatsApp
             </a>
 
-            <Image
-              src={siteConfig.images.wellness}
-              alt="Momento de bem-estar e cuidado com a saúde mental"
-              width={1080}
-              height={720}
-              sizes="(max-width: 768px) 100vw, 40vw"
-              className={s.ctaImage}
-            />
-
             <p className={s.ctaNote}>✨ Atendimento presencial e online disponível</p>
           </div>
         </div>

@@ -1,12 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Lato } from "next/font/google";
 import { JsonLd } from "@/components/json-ld";
 import { siteConfig, siteUrl } from "@/config/site";
 import "./globals.css";
 
-const inter = Inter({
+// Lato nao e fonte variavel no next/font, entao os pesos vao declarados.
+const lato = Lato({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["300", "400", "700"],
+  variable: "--font-lato",
   display: "swap",
 });
 
@@ -81,7 +83,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#8fa894",
+  themeColor: "#2f4a3a",
   colorScheme: "light",
   width: "device-width",
   initialScale: 1,
@@ -91,7 +93,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${cormorant.variable}`}>
+    <html lang="pt-BR" className={`${lato.variable} ${cormorant.variable}`}>
       <body>
         {/* Estilos de .skip-link em src/styles/base.css. */}
         <a href="#conteudo" className="skip-link">

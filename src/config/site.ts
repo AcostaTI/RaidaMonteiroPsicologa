@@ -57,6 +57,7 @@ export const siteConfig = {
     "Se você chegou até aqui, talvez esteja buscando compreensão, apoio ou um novo olhar para sua vida. Quero que saiba que este é um espaço de acolhimento, respeito e escuta, onde sua história será recebida sem julgamentos.",
     "Acredito no potencial humano de crescimento e transformação. Juntos, podemos construir caminhos que favoreçam o autoconhecimento, o equilíbrio emocional e uma vida mais consciente e plena.",
     "Será um prazer caminhar ao seu lado nessa jornada.",
+    "Raida Monteiro"
   ],
 
   phone: {
@@ -105,7 +106,7 @@ export const siteConfig = {
   },
 
   stats: {
-    yearsOfExperience: "10+",
+    yearsOfExperience: "32",
     patients: "500+",
   },
 

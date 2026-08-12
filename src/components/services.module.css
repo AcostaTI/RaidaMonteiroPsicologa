@@ -77,80 +77,107 @@
   color: var(--color-muted-foreground);
 }
 
-/* --- Bloco "Como Funcionam as Sessões?" ---------------------------------- */
+/* --- Bloco "Pilares da Minha Prática" ------------------------------------ */
 
-.steps {
+.pillars {
   margin-top: 4rem;
   border-radius: var(--radius-3xl);
-  background-image: linear-gradient(
-    to right,
-    var(--tint-primary-10),
-    var(--tint-secondary-20)
-  );
+  background-color: var(--color-muted);
   padding: 2rem;
   text-align: center;
 }
 
 @media (min-width: 48rem) {
-  .steps {
+  .pillars {
     padding: 3rem;
   }
 }
 
-.stepsTitle {
-  margin-bottom: 1rem;
-  font-size: var(--text-2xl);
-  color: var(--color-foreground);
+/*
+ * Rotulo em pilula verde escura, como na peca do manual de marca. A familia
+ * precisa ser redeclarada: `base.css` aplica a serifada por seletor de elemento
+ * em `h1..h4`, e aqui o rotulo e sem serifa.
+ */
+.pillarsTitle {
+  composes: badge from "../styles/shared.module.css";
+  font-family: var(--family-sans);
 }
 
-@media (min-width: 48rem) {
-  .stepsTitle {
-    font-size: var(--text-3xl);
-  }
-}
-
-.stepsList {
+.pillarsList {
   display: grid;
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+  list-style: none;
 }
 
-@media (min-width: 48rem) {
-  .stepsList {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+@media (min-width: 40rem) {
+  .pillarsList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.stepNumber {
+@media (min-width: 64rem) {
+  .pillarsList {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/*
+ * Filetes verticais entre as colunas. So a partir de 64rem, quando os quatro
+ * pilares ficam lado a lado — com duas colunas o traco cairia no meio da grade.
+ */
+@media (min-width: 64rem) {
+  .pillar + .pillar {
+    border-left: 1px solid var(--color-border);
+    padding-left: 2rem;
+  }
+}
+
+/*
+ * Icone em traco solto, sem o circulo de fundo dos `.iconCircle*`: e assim que
+ * a peca desenha. O SVG herda a cor daqui via `currentColor`.
+ */
+.pillarIcon {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  margin-inline: auto;
-  margin-bottom: 1rem;
-  border-radius: var(--radius-full);
-  background-color: var(--color-card);
-  box-shadow: var(--shadow-sm);
-  font-weight: 600;
+  color: var(--color-primary-strong);
 }
 
-.stepNumberPrimary {
-  composes: stepNumber;
-  color: var(--color-primary);
+/*
+ * Uniformiza o peso do traco: o lucide renderiza com `stroke-width` 2 e a peca
+ * usa linha fina. Aqui e por CSS, e nao por prop, porque so a espessura muda —
+ * o tamanho continua vindo da prop `size`, como no resto do projeto. A
+ * propriedade CSS vence o atributo de apresentacao do SVG.
+ */
+.pillarIcon svg {
+  stroke-width: 1.5;
 }
 
-.stepNumberSecondary {
-  composes: stepNumber;
-  color: var(--color-secondary-foreground);
+/* Pequeno chevron entre o icone e o titulo, feito com o truque de bordas. */
+.pillarIcon::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  margin-top: 1rem;
+  border-top: 5px solid var(--color-primary);
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
 }
 
-.stepTitle {
-  margin-bottom: 0.5rem;
-  font-size: var(--text-lg);
+.pillarTitle {
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--family-sans);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--color-foreground);
 }
 
-.stepText {
+.pillarText {
+  line-height: var(--leading-relaxed);
   color: var(--color-muted-foreground);
 }

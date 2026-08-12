@@ -1,3 +1,4 @@
+import { approaches, specializations } from "@/data/formation";
 import { services } from "@/data/services";
 import { siteConfig, siteUrl } from "@/config/site";
 
@@ -12,6 +13,14 @@ import { siteConfig, siteUrl } from "@/config/site";
  */
 export function JsonLd() {
   const businessId = `${siteUrl}/#psicologa`;
+
+  // Areas de atuacao (cards de "Serviços") + formacao academica, sem repetir
+  // string nenhuma.
+  const knowsAbout = [
+    ...services.map((service) => service.title),
+    ...specializations,
+    ...approaches,
+  ];
 
   const graph = [
     {
@@ -60,7 +69,7 @@ export function JsonLd() {
       description: siteConfig.description,
       url: siteUrl,
       worksFor: { "@id": businessId },
-      knowsAbout: services.map((service) => service.title),
+      knowsAbout,
       hasCredential: {
         "@type": "EducationalOccupationalCredential",
         credentialCategory: "Registro Profissional",

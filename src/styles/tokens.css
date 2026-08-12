@@ -1,8 +1,9 @@
 /*
  * TOKENS DA MARCA
  * ---------------------------------------------------------------------------
- * Valores extraidos do prototipo original do Figma. Coincidem com as cores da
- * logo: verde salvia e lavanda.
+ * Valores do manual de marca: verde escuro, verde medio, verde salvia, bege
+ * areia e off-white. Nao ha lavanda na identidade — o papel de cor secundaria
+ * e do bege.
  *
  * Os "tints" sao as versoes translucidas usadas em fundos de icone, halos e
  * faixas de secao. Estao pre-calculados aqui em vez de espalhados pelo CSS
@@ -14,27 +15,32 @@
 
 :root {
   /* Cores base */
-  --color-primary: #8fa894;
+  --color-primary: #8da489;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #c9b8d4;
-  --color-secondary-foreground: #3a4d3f;
-  --color-foreground: #3a4d3f;
-  --color-background: #faf9f7;
+  --color-secondary: #dccbb4;
+  --color-secondary-foreground: #2f4a3a;
+  --color-foreground: #2f4a3a;
+  --color-background: #f4efe6;
   --color-card: #ffffff;
-  --color-muted: #f0ede9;
-  --color-muted-foreground: #6b6b78;
-  --color-border: rgb(143 168 148 / 0.2);
+  --color-muted: #ede6d9;
+  --color-muted-foreground: #5a6659;
+  --color-border: rgb(141 164 137 / 0.3);
 
   /* Estados */
-  --color-primary-hover: rgb(143 168 148 / 0.9);
+  --color-primary-strong: #587350;
+  --color-primary-hover: #587350;
 
-  /* Tints: primary = 143 168 148, secondary = 201 184 212, muted = 240 237 233 */
-  --tint-primary-10: rgb(143 168 148 / 0.1);
-  --tint-primary-25: rgb(143 168 148 / 0.25);
-  --tint-secondary-20: rgb(201 184 212 / 0.2);
-  --tint-secondary-25: rgb(201 184 212 / 0.25);
-  --tint-muted-40: rgb(240 237 233 / 0.4);
-  --tint-muted-60: rgb(240 237 233 / 0.6);
+  /*
+   * Tints: primary = 141 164 137, secondary = 220 203 180, muted = 237 230 217.
+   * O numero no nome e so um rotulo — a opacidade e calibrada por cor, e o bege
+   * precisa de mais alfa que o verde para pesar o mesmo na tela.
+   */
+  --tint-primary-10: rgb(141 164 137 / 0.12);
+  --tint-primary-25: rgb(141 164 137 / 0.25);
+  --tint-secondary-20: rgb(220 203 180 / 0.35);
+  --tint-secondary-25: rgb(220 203 180 / 0.45);
+  --tint-muted-40: rgb(237 230 217 / 0.4);
+  --tint-muted-60: rgb(237 230 217 / 0.6);
 
   /* Sobre o rodape escuro */
   --on-dark-strong: #ffffff;
@@ -44,7 +50,7 @@
   --on-dark-border: rgb(255 255 255 / 0.1);
 
   /* Tipografia. As variaveis --font-* vem do next/font em layout.tsx. */
-  --family-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --family-sans: var(--font-lato), ui-sans-serif, system-ui, sans-serif;
   --family-serif: var(--font-cormorant), ui-serif, Georgia, "Times New Roman", serif;
 
   --text-sm: 0.875rem;
