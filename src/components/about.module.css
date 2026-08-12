@@ -33,6 +33,16 @@
   color: var(--color-muted-foreground);
 }
 
+/*
+ * Ramo do manual de marca, como fecho do texto. `height: auto` e obrigatorio:
+ * o next/image emite os atributos width/height do arquivo e sem isso a largura
+ * definida aqui deformaria o desenho.
+ */
+.ornament {
+  width: 7rem;
+  height: auto;
+}
+
 /* Par de indicadores: anos de experiencia e pacientes atendidos. */
 .stats {
   gap: 1rem;

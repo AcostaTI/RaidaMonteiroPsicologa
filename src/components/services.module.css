@@ -103,10 +103,18 @@
   font-family: var(--family-sans);
 }
 
+/* Mesmo arquivo e mesmas dimensoes do ramo em "Sobre Mim": um download so. */
+.pillarsOrnament {
+  display: block;
+  width: 9rem;
+  height: auto;
+  margin: 1.25rem auto 0;
+}
+
 .pillarsList {
   display: grid;
   gap: 2rem;
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
   list-style: none;
 }
 
@@ -134,24 +142,24 @@
 }
 
 /*
- * Icone em traco solto, sem o circulo de fundo dos `.iconCircle*`: e assim que
- * a peca desenha. O SVG herda a cor daqui via `currentColor`.
+ * Desenho em traco solto, sem o circulo de fundo dos `.iconCircle*`: e assim
+ * que a peca desenha.
  */
 .pillarIcon {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--color-primary-strong);
 }
 
 /*
- * Uniformiza o peso do traco: o lucide renderiza com `stroke-width` 2 e a peca
- * usa linha fina. Aqui e por CSS, e nao por prop, porque so a espessura muda —
- * o tamanho continua vindo da prop `size`, como no resto do projeto. A
- * propriedade CSS vence o atributo de apresentacao do SVG.
+ * Caixa fixa para os quatro PNGs. Eles sao quadrados e tem o traco ocupando
+ * 88% do lado, entao `contain` aqui e so uma trava — o tamanho optico ja vem
+ * igual dos proprios arquivos, sem regra por pilar.
  */
-.pillarIcon svg {
-  stroke-width: 1.5;
+.pillarImage {
+  width: 2.75rem;
+  height: 2.75rem;
+  object-fit: contain;
 }
 
 /* Pequeno chevron entre o icone e o titulo, feito com o truque de bordas. */

@@ -1,16 +1,10 @@
-import type { ComponentType } from "react";
-import { Flower2, HandHeart } from "lucide-react";
-import { SpiralMark } from "@/components/spiral-mark";
-import { SunMark } from "@/components/sun-mark";
-
-/**
- * Aceita tanto um `LucideIcon` quanto o `SpiralMark`: os dois recebem `size` e
- * herdam a cor do contêiner via `currentColor`.
- */
-export type PillarIcon = ComponentType<{ size?: number; className?: string }>;
-
 export type Pillar = {
-  icon: PillarIcon;
+  /**
+   * Caminho do desenho em `/public`. Os quatro arquivos sao quadrados e tem o
+   * traco ocupando 88% do lado, entao todos aparecem no mesmo tamanho optico
+   * dentro da caixa fixa de `.pillarImage` — sem ajuste por item.
+   */
+  image: string;
   title: string;
   description: string;
 };
@@ -22,22 +16,22 @@ export type Pillar = {
  */
 export const pillars: Pillar[] = [
   {
-    icon: HandHeart,
+    image: "/acolhimento.png",
     title: "Acolhimento",
     description: "Um espaço seguro para ser quem você é.",
   },
   {
-    icon: Flower2,
+    image: "/presenca.png",
     title: "Presença",
     description: "Escuta genuína e respeito à sua história.",
   },
   {
-    icon: SunMark,
+    image: "/autoconhecimento.png",
     title: "Autoconhecimento",
     description: "Caminhos para ampliar a consciência e integrar-se.",
   },
   {
-    icon: SpiralMark,
+    image: "/transformacao.png",
     title: "Transformação",
     description: "Libertar-se do que limita para viver com mais sentido.",
   },

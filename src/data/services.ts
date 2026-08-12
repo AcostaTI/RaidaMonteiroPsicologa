@@ -22,33 +22,33 @@ export type Service = {
  * de sincronia.
  */
 export const services: Service[] = [
-  {
-    icon: Brain,
-    title: "Ansiedade e Estresse",
-    description:
-      "Tratamento especializado para transtornos de ansiedade, síndrome do pânico e gestão de estresse.",
-    accent: "primary",
-  },
-  {
-    icon: HeartPulse,
-    title: "Depressão",
-    description:
-      "Acompanhamento terapêutico para pessoas que enfrentam sintomas depressivos e dificuldades emocionais.",
-    accent: "secondary",
-  },
-  {
-    icon: UsersRound,
-    title: "Relacionamentos",
-    description:
-      "Terapia para questões relacionadas a vínculos afetivos, familiares e interpessoais.",
-    accent: "primary",
-  },
-  {
+   {
     icon: Sparkles,
     title: "Autoestima e Autoconhecimento",
     description:
       "Desenvolvimento pessoal, fortalecimento da autoconfiança e descoberta de potenciais.",
     accent: "secondary",
+  },
+  {
+    icon: Brain,
+    title: "Ansiedade e Estresse",
+    description:
+      "Transtorno da ansiedade, TAG(Transtorno de Ansiedade Generalizada) e Gestão de Estresse.",
+    accent: "primary",
+  },
+  {
+    icon: HeartPulse,
+    title: "Disforia de gênero - Adultos",
+    description:
+      "",
+    accent: "secondary",
+  },
+  {
+    icon: UsersRound,
+    title: "Terapia de casal e outros relacionamentos",
+    description:
+      "Terapia para questões relacionadas a vínculos afetivos, familiares e interpessoais.",
+    accent: "primary",
   },
   {
     icon: Shield,
@@ -59,9 +59,9 @@ export const services: Service[] = [
   },
   {
     icon: Clock,
-    title: "Transições de Vida",
+    title: "Transtorno do humor",
     description:
-      "Apoio em momentos de mudança, como mudança de carreira, casamento, maternidade e outras transições.",
+      "Bipolaridade, depressão: leve, moderada e grave(se necessário, com acompanhamento domiciliar).",
     accent: "secondary",
   },
 ];

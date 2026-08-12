@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SectionHeading } from "@/components/section-heading";
 import { pillars } from "@/data/pillars";
 import { services } from "@/data/services";
@@ -44,27 +45,38 @@ export function Services() {
         </ul>
 
         {/*
-          Pilares da pratica. O `aria-hidden` fica no <span> em volta, e nao no
-          icone: assim o tipo `PillarIcon` nao precisa declarar props de ARIA e
-          o `SpiralMark` continua intercambiavel com os icones do lucide.
+          Pilares da pratica. Os desenhos sao os PNGs do manual de marca, nao
+          icones do lucide — o `aria-hidden` fica no <span> em volta e o `alt`
+          e vazio, porque o titulo logo abaixo ja diz a mesma coisa.
         */}
         <div className={s.pillars}>
           <h3 className={s.pillarsTitle}>Pilares da Minha Prática</h3>
 
-          <ul className={s.pillarsList}>
-            {pillars.map((pillar) => {
-              const Icon = pillar.icon;
+          <Image
+            src="/ramo.png"
+            alt=""
+            aria-hidden="true"
+            width={350}
+            height={147}
+            className={s.pillarsOrnament}
+          />
 
-              return (
-                <li key={pillar.title} className={s.pillar}>
-                  <span className={s.pillarIcon} aria-hidden="true">
-                    <Icon size={40} />
-                  </span>
-                  <h4 className={s.pillarTitle}>{pillar.title}</h4>
-                  <p className={s.pillarText}>{pillar.description}</p>
-                </li>
-              );
-            })}
+          <ul className={s.pillarsList}>
+            {pillars.map((pillar) => (
+              <li key={pillar.title} className={s.pillar}>
+                <span className={s.pillarIcon} aria-hidden="true">
+                  <Image
+                    src={pillar.image}
+                    alt=""
+                    width={44}
+                    height={44}
+                    className={s.pillarImage}
+                  />
+                </span>
+                <h4 className={s.pillarTitle}>{pillar.title}</h4>
+                <p className={s.pillarText}>{pillar.description}</p>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

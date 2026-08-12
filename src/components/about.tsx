@@ -37,6 +37,17 @@ export function About() {
             <p className={s.intro}>
               Será um prazer caminhar ao seu lado em sua jornada de autoconhecimento e transformação.
             </p>
+
+            {/* Ramo do manual de marca, fechando o texto antes do indicador. */}
+            <Image
+              src="/ramo.png"
+              alt=""
+              aria-hidden="true"
+              width={350}
+              height={147}
+              className={s.ornament}
+            />
+
             <dl className={s.stats}>
               <div className={s.stat}>
                 <span className={s.statIconPrimary}>
