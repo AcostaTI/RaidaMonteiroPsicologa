@@ -1,23 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Lato } from "next/font/google";
 import { JsonLd } from "@/components/json-ld";
 import { siteConfig, siteUrl } from "@/config/site";
 import "./globals.css";
 
-// Lato nao e fonte variavel no next/font, entao os pesos vao declarados.
-const lato = Lato({
-  subsets: ["latin"],
-  weight: ["300", "400", "700"],
-  variable: "--font-lato",
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-cormorant",
-  display: "swap",
-});
+/*
+ * Sem next/font: a tipografia agora e Comic Sans MS, fonte de sistema, entao
+ * nao ha webfont para baixar. A pilha esta em --family-sans, em tokens.css.
+ */
 
 const pageTitle = `${siteConfig.name} | ${siteConfig.role} Atendimento Online e em Belém do Pará`;
 
@@ -93,7 +82,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className={`${lato.variable} ${cormorant.variable}`}>
+    <html lang="pt-BR">
       <body>
         {/* Estilos de .skip-link em src/styles/base.css. */}
         <a href="#conteudo" className="skip-link">

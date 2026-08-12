@@ -49,9 +49,24 @@
   --on-dark-surface-hover: rgb(255 255 255 / 0.2);
   --on-dark-border: rgb(255 255 255 / 0.1);
 
-  /* Tipografia. As variaveis --font-* vem do next/font em layout.tsx. */
-  --family-sans: var(--font-lato), ui-sans-serif, system-ui, sans-serif;
-  --family-serif: var(--font-cormorant), ui-serif, Georgia, "Times New Roman", serif;
+  /*
+   * Tipografia: Comic Sans MS em todo o site, titulos e corpo.
+   *
+   * E fonte de sistema, nao webfont — nao ha nada baixado pelo next/font. Vem
+   * instalada no Windows e no macOS; em Linux e Android normalmente nao existe,
+   * e nesses casos a pilha cai em Comic Neue (se instalada) e por fim no
+   * generico `cursive`, que varia de aparelho para aparelho.
+   *
+   * Comic Sans MS so tem Regular e Bold. Os `font-weight: 500` e `600`
+   * espalhados pelo CSS nao tem recorte proprio: o navegador resolve 500 como
+   * Regular e 600 como Bold.
+   *
+   * Os dois tokens apontam para a mesma pilha de proposito — a distincao
+   * serif/sans fica preservada na estrutura, entao voltar atras e reescrever
+   * estas duas linhas.
+   */
+  --family-sans: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", cursive;
+  --family-serif: var(--family-sans);
 
   --text-sm: 0.875rem;
   --text-base: 1rem;
