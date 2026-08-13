@@ -5,6 +5,7 @@ import { Menu, MessageCircle, X } from "lucide-react";
 import { Brand } from "@/components/brand";
 import { navItems, whatsappUrl } from "@/config/site";
 import s from "./header.module.css";
+import { siteConfig } from "@/config/site";
 
 export function Header({ hasLogo }: { hasLogo: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ export function Header({ hasLogo }: { hasLogo: boolean }) {
     <header className={s.header}>
       <div className={s.inner}>
         <a href="#topo" aria-label="Ir para o início da página">
-          <Brand hasLogo={hasLogo} className={s.brand} />
+          <Brand hasLogo={hasLogo}  subtitle={`${siteConfig.role} ${siteConfig.crp}`} className={s.brand} />
         </a>
 
         {/* Navegacao desktop: ancoras reais, rastreaveis por buscadores. */}

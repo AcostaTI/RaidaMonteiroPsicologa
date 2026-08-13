@@ -77,6 +77,59 @@
   color: var(--color-muted-foreground);
 }
 
+/* --- Rotulo em pilula dos blocos abaixo dos cards ------------------------- */
+
+/*
+ * Pilula verde escura, como na peca do manual de marca. A familia precisa ser
+ * redeclarada: `base.css` aplica a fonte por seletor de elemento em `h1..h4` e
+ * aqui o rotulo tem tratamento proprio. A caixa alta e `text-transform`, para o
+ * leitor de tela nao soletrar letra a letra.
+ */
+.blockBadge {
+  display: inline-block;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-strong);
+  padding: 0.5rem 1.25rem;
+  font-family: var(--family-sans);
+  font-size: var(--text-base);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary-foreground);
+}
+
+/* --- Bloco "Público-Alvo" ------------------------------------------------ */
+
+.audiences {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.audiencesTitle {
+  composes: blockBadge;
+}
+
+/*
+ * Pilulas em linha, quebrando sozinhas no celular. `list-style: none` porque a
+ * lista continua sendo <ul> — o marcador some, a semantica fica.
+ */
+.audiencesList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  list-style: none;
+}
+
+.audience {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background-color: var(--tint-primary-10);
+  padding: 0.5rem 1.25rem;
+  color: var(--color-foreground);
+}
+
 /* --- Bloco "Pilares da Minha Prática" ------------------------------------ */
 
 .pillars {
@@ -93,14 +146,8 @@
   }
 }
 
-/*
- * Rotulo em pilula verde escura, como na peca do manual de marca. A familia
- * precisa ser redeclarada: `base.css` aplica a serifada por seletor de elemento
- * em `h1..h4`, e aqui o rotulo e sem serifa.
- */
 .pillarsTitle {
-  composes: badge from "../styles/shared.module.css";
-  font-family: var(--family-sans);
+  composes: blockBadge;
 }
 
 /* Mesmo arquivo e mesmas dimensoes do ramo em "Sobre Mim": um download so. */
@@ -109,6 +156,32 @@
   width: 9rem;
   height: auto;
   margin: 1.25rem auto 0;
+}
+
+/*
+ * A partir de 48rem o ramo sobe para a linha do titulo, encostado no canto
+ * direito. As tres colunas (vazia / titulo / ramo) sao o que mantem a pilula no
+ * centro do bloco mesmo com o desenho ocupando so um dos lados. Abaixo disso
+ * nao ha largura para os dois lado a lado, entao o ramo continua centrado
+ * embaixo do titulo.
+ */
+@media (min-width: 48rem) {
+  .pillarsHeader {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .pillarsHeader .pillarsTitle {
+    grid-column: 2;
+  }
+
+  .pillarsHeader .pillarsOrnament {
+    grid-column: 3;
+    justify-self: end;
+    margin: 0;
+  }
 }
 
 .pillarsList {

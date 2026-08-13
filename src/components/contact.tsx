@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Clock, Facebook, Instagram, MessageCircle, Phone } from "lucide-react";
+import { Clock, Facebook, Instagram, MessageCircle, Phone, Sparkles } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { siteConfig, whatsappUrl } from "@/config/site";
 import s from "./contact.module.css";
@@ -26,7 +26,7 @@ export function Contact() {
         <SectionHeading
           id="titulo-contato"
           title="Entre em Contato"
-          subtitle="Estou aqui para ajudar você. Entre em contato para agendar sua consulta"
+          subtitle="A psicoteria é um encontro consigo mesmo. Você não precisa caminhar sozinho."
         />
 
         <div className={s.grid}>
@@ -40,7 +40,7 @@ export function Contact() {
                     <Phone size={20} aria-hidden="true" />
                   </span>
                   <div>
-                    <p className={s.itemLabel}>Telefone</p>
+                    <p className={s.itemLabel}>Telefone | WhatsApp</p>
                     {/* Link tel: real: liga com um toque no celular. */}
                     <a href={`tel:${siteConfig.phone.e164}`} className={s.itemLink}>
                       {siteConfig.phone.display}
@@ -109,7 +109,11 @@ export function Contact() {
               Conversar no WhatsApp
             </a>
 
-            <p className={s.ctaNote}>✨ Atendimento presencial e online disponível</p>
+            {/* Mesmo texto do selo da Hero — os dois saem de `site.ts`. */}
+            <p className={s.ctaNote}>
+              <Sparkles size={20} aria-hidden="true" />
+              {siteConfig.attendanceNote} disponível
+            </p>
           </div>
         </div>
       </div>

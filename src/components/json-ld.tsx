@@ -55,8 +55,7 @@ export function JsonLd() {
       ],
       availableService: services.map((service) => ({
         "@type": "MedicalTherapy",
-        name: service.title,
-        description: service.description,
+        name: service.title
       })),
       medicalSpecialty: "Psychiatric",
       founder: { "@id": `${siteUrl}/#pessoa` },

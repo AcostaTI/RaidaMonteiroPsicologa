@@ -39,8 +39,10 @@
  * definida aqui deformaria o desenho.
  */
 .ornament {
+  display: block;
   width: 7rem;
   height: auto;
+  margin-left: auto;
 }
 
 /* Par de indicadores: anos de experiencia e pacientes atendidos. */

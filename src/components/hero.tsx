@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Sparkles } from "lucide-react";
 import { siteConfig, whatsappUrl } from "@/config/site";
 import s from "./hero.module.css";
 
@@ -8,7 +8,15 @@ export function Hero() {
     <section id="topo" className={s.section}>
       <div className={s.grid}>
         <div className={s.content}>
-          <p className={s.badge}>{siteConfig.crp}</p>
+          {/*
+            Selo de destaque: a modalidade de atendimento e a primeira coisa que
+            aparece, antes mesmo do titulo. O texto vem de `site.ts`, o mesmo que
+            alimenta a nota do cartao de agendamento.
+          */}
+          <p className={s.badge}>
+            <Sparkles size={18} aria-hidden="true" />
+            {siteConfig.attendanceNote}
+          </p>
 
           {/* Unico <h1> da pagina: o titulo mais importante para SEO. */}
           <h1 className={s.title}>{siteConfig.tagline}</h1>

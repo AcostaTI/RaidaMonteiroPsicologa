@@ -25,9 +25,16 @@
 }
 
 .subtitle {
-  max-width: 42rem;
+  max-width: 46rem;
   margin-inline: auto;
   margin-top: 1.5rem;
   font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
   color: var(--color-muted-foreground);
+}
+
+@media (min-width: 48rem) {
+  .subtitle {
+    font-size: var(--text-xl);
+  }
 }

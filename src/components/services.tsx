@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { SectionHeading } from "@/components/section-heading";
+import { audiences } from "@/data/audiences";
 import { pillars } from "@/data/pillars";
 import { services } from "@/data/services";
 import s from "./services.module.css";
@@ -23,7 +24,7 @@ export function Services() {
         <SectionHeading
           id="titulo-servicos"
           title="Áreas de Atuação"
-          subtitle="Atendimento especializado e personalizado para diferentes questões emocionais e psicológicas"
+          subtitle="Atendimento e acompanhamento personalizado para diferentes questões emocionais e psíquicas."
         />
 
         <ul className={s.grid}>
@@ -37,7 +38,7 @@ export function Services() {
                     <Icon size={28} aria-hidden="true" />
                   </span>
                   <h3 className={s.cardTitle}>{service.title}</h3>
-                  <p className={s.cardText}>{service.description}</p>
+                
                 </article>
               </li>
             );
@@ -45,21 +46,39 @@ export function Services() {
         </ul>
 
         {/*
+          Publico-alvo. Lista de pilulas, sem link nem interacao — e so um
+          recorte de para quem o atendimento e feito.
+        */}
+        <div className={s.audiences}>
+          <h2 className={s.audiencesTitle}>Público-Alvo</h2>
+
+          <ul className={s.audiencesList}>
+            {audiences.map((audience) => (
+              <li key={audience} className={s.audience}>
+                {audience}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/*
           Pilares da pratica. Os desenhos sao os PNGs do manual de marca, nao
           icones do lucide — o `aria-hidden` fica no <span> em volta e o `alt`
           e vazio, porque o titulo logo abaixo ja diz a mesma coisa.
         */}
         <div className={s.pillars}>
-          <h3 className={s.pillarsTitle}>Pilares da Minha Prática</h3>
+          <div className={s.pillarsHeader}>
+            <h2 className={s.pillarsTitle}>Pilares da Minha Prática</h2>
 
-          <Image
-            src="/ramo.png"
-            alt=""
-            aria-hidden="true"
-            width={350}
-            height={147}
-            className={s.pillarsOrnament}
-          />
+            <Image
+              src="/ramo.png"
+              alt=""
+              aria-hidden="true"
+              width={350}
+              height={147}
+              className={s.pillarsOrnament}
+            />
+          </div>
 
           <ul className={s.pillarsList}>
             {pillars.map((pillar) => (

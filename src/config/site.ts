@@ -87,10 +87,16 @@ export const siteConfig = {
     country: "BR",
   },
 
+  /**
+   * Modalidade de atendimento. Aparece em dois lugares: o selo de destaque no
+   * topo da Hero e a nota do cartao de agendamento em "Entre em Contato".
+   */
+  attendanceNote: "Atendimento presencial e online",
+
   /** Horarios exibidos na secao de contato. */
   openingHours: [
-    { label: "Segunda a Sexta", value: "8h às 19h" },
-    { label: "Sábados", value: "8h às 13h" },
+    { label: "Segunda a Sexta", value: "8h às 18h" },
+    { label: "Sábados", value: "9h às 11h" },
   ],
 
   /** Mesmos horarios em formato schema.org, para o JSON-LD. */

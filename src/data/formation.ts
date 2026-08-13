@@ -5,7 +5,6 @@
  */
 export const specializations = [
   "Sexologia Humana",
-  "Terapia Sexual e de Casal",
   "Neuropsicologia",
   "Avaliação Psicológica",
 ] as const;

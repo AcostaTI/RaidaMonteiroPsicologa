@@ -20,8 +20,7 @@ export function About() {
             <p className={s.intro}>
               Ao longo da minha trajetória profissional, busquei uma formação ampla e contínua, 
               com formação em Psicologia Transpessoal, especializações em Sexologia, Neuropsicologia e 
-              Avaliação Psicológica. Essa base me permite compreender o ser humano em sua complexidade, 
-              respeitando sua história, seus desafios e suas potencialidades.
+              Avaliação Psicológica.
             </p>
             <p className={s.intro}>
               Meu trabalho é fundamentado na Psicologia Humanista e Transpessoal, abordagem que valoriza a 
@@ -48,19 +47,6 @@ export function About() {
               className={s.ornament}
             />
 
-            <dl className={s.stats}>
-              <div className={s.stat}>
-                <span className={s.statIconPrimary}>
-                  <Award size={24} aria-hidden="true" />
-                </span>
-                <div>
-                  <dt className={s.statValue}>
-                    + de {siteConfig.stats.yearsOfExperience} Anos de Experiência Clínica
-                  </dt>
-                  <dd className={s.statLabel}>Experiência</dd>
-                </div>
-              </div>
-            </dl>
           </div>
 
           <Image
@@ -68,7 +54,7 @@ export function About() {
             alt={`${siteConfig.name}, ${siteConfig.role.toLowerCase()}`}
             width={1080}
             height={810}
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes="(max-width: 48rem) 100vw, 30rem"
             className={s.photo}
           />
         </div>
@@ -80,10 +66,11 @@ export function About() {
             </span>
             <h3 className={s.cardTitle}>Formação Acadêmica</h3>
             <p className={s.cardText}>
-              Graduação em Psicologia pela Universidade da Amazônia - UNAMA, em dezembro de 1994.
-              Formação em Psicologia Humanista Rogeriana. Formação em Psicologia Transpessoal.
+              - Graduação em Psicologia pela Universidade da Amazônia - UNAMA, em dezembro de 1994.
             </p>
-            <p className={s.cardLabel}>Especialização:</p>
+            <p className={s.cardText}> - Formação em Psicologia Humanista Rogeriana - UNAMA.</p>
+            <p className={s.cardText}> - Formação em Psicologia Transpessoal - ALUBRAT.</p>
+            <p className={s.cardLabel}> - Especialização:</p>
             <ul className={s.cardList}>
               {specializations.map((specialization) => (
                 <li key={specialization}>{specialization}</li>
@@ -95,10 +82,24 @@ export function About() {
             <span className={s.cardIconSecondary}>
               <Heart size={24} aria-hidden="true" />
             </span>
-            <h3 className={s.cardTitle}>Abordagem Humanizada</h3>
+            <h3 className={s.cardTitle}>Minha Abordagem Terapêutica </h3>
+            <h4> - Humanista Rogeriana</h4>
             <p className={s.cardText}>
-              Acredito na escuta ativa, no acolhimento genuíno e na construção de uma relação
-              terapêutica baseada na confiança e no respeito.
+              Segundo Carl Rogers, todo ser humano possui uma força natural que o 
+              impulsiona a crescer, aprender, superar dificuldades e desenvolver 
+              suas potencialidades. Assim como uma semente tende a se transformar 
+              em árvore quando encontra condições favoráveis, as pessoas também tendem a 
+              se desenvolver quando vivem relações baseadas em acolhimento, respeito e aceitação.
+            </p>
+            <br />
+            <h4> - Psicologia Transpessoal</h4>
+            <p className={s.cardText}>
+              A Psicologia Transpessoal tenta compreender o ser humano em sua totalidade.
+               Além das emoções e dos pensamentos, considera também a busca por significado, 
+               propósito e crescimento interior. O trabalho terapêutico acolhe o que a pessoa 
+               sente (corpo emocional), o que ela pensa (corpo mental) e os aprendizados mais 
+               profundos de sua trajetória (corpo causal), favorecendo o autoconhecimento, 
+               a expansão da consciência e uma vida mais plena e significativa.
             </p>
           </article>
         </div>

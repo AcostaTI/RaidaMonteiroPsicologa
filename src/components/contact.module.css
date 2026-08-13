@@ -23,7 +23,7 @@
 
 .blockTitle {
   margin-bottom: 1.5rem;
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   color: var(--color-foreground);
 }
 
@@ -33,7 +33,7 @@
 }
 
 .items {
-  composes: stackTight from "../styles/shared.module.css";
+  composes: stack from "../styles/shared.module.css";
 }
 
 .item {
@@ -42,16 +42,26 @@
   gap: 1rem;
 }
 
+/*
+ * Circulo maior que o padrao de 3rem, para acompanhar o corpo de texto ampliado.
+ * O tamanho vem da custom property — sobrescrever width/height depois do
+ * `composes` nao seria confiavel.
+ */
 .itemIconPrimary {
   composes: iconCirclePrimary from "../styles/shared.module.css";
+  --icon-circle-size: 3.5rem;
 }
 
 .itemLabel {
-  font-weight: 500;
+  margin-bottom: 0.25rem;
+  font-size: var(--text-lg);
+  font-weight: 700;
   color: var(--color-foreground);
 }
 
 .itemValue {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
   color: var(--color-muted-foreground);
 }
 
@@ -157,12 +167,27 @@
   object-fit: cover;
 }
 
+/*
+ * Nota da modalidade de atendimento. Em destaque: e a mesma informacao do selo
+ * no topo da pagina, entao aqui ela fecha o argumento junto ao botao.
+ */
 .ctaNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
   margin-top: 1.5rem;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-2xl);
-  background-color: var(--tint-muted-60);
-  padding: 1rem;
+  background-color: var(--tint-primary-10);
+  padding: 1.25rem;
   text-align: center;
-  font-size: var(--text-sm);
-  color: var(--color-muted-foreground);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-foreground);
+}
+
+/* Trava o icone: sem isso ele encolhe quando o texto quebra em duas linhas. */
+.ctaNote svg {
+  flex-shrink: 0;
 }

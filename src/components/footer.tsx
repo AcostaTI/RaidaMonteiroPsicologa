@@ -42,11 +42,6 @@ export function Footer() {
                   {siteConfig.phone.display}
                 </a>
               </li>
-              <li>
-                <a href={`mailto:${siteConfig.email}`} className={s.contactLink}>
-                  {siteConfig.email}
-                </a>
-              </li>
             </ul>
           </div>
 

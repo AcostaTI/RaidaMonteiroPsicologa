@@ -23,13 +23,32 @@
   composes: stack from "../styles/shared.module.css";
 }
 
-/* Selo com o registro no CRP. */
+/*
+ * Selo de destaque acima do titulo, com a modalidade de atendimento.
+ * `inline-flex` para o icone e o texto ficarem na mesma linha de base; a borda
+ * segura o selo contra o fundo bege claro da Hero.
+ */
 .badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
   background-color: var(--tint-secondary-25);
   color: var(--color-secondary-foreground);
-  padding: 0.5rem 1rem;
+  padding: 0.625rem 1.25rem;
+  font-size: var(--text-base);
+  font-weight: 700;
+}
+
+.badge svg {
+  flex-shrink: 0;
+}
+
+@media (min-width: 48rem) {
+  .badge {
+    font-size: var(--text-lg);
+  }
 }
 
 .title {
