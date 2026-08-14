@@ -33,6 +33,6 @@ export const pillars: Pillar[] = [
   {
     image: "/transformacao.png",
     title: "Transformação",
-    description: "Libertar-se do que limita para viver com mais sentido.",
+    description: "Libertar-se do que te limita para viver com mais sentido.",
   },
 ];

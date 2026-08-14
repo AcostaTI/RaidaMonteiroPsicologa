@@ -31,7 +31,6 @@ export function JsonLd() {
       description: siteConfig.description,
       url: siteUrl,
       telephone: siteConfig.phone.e164,
-      email: siteConfig.email,
       priceRange: "$$",
       currenciesAccepted: "BRL",
       // Cidade/estado sem rua: sustenta a busca local sem expor o consultorio.

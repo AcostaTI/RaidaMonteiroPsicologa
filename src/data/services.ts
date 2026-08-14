@@ -49,7 +49,7 @@ export const services: Service[] = [
   },
   {
     icon: Clock,
-    title: "Transtorno do humor",
+    title: "Transtornos do humor",
     accent: "secondary",
   },
   {

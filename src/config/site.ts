@@ -13,7 +13,7 @@
 
 /** URL publica do site, sem barra no final. Definida em .env como NEXT_PUBLIC_SITE_URL. */
 export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.raidamonteiro.com.br"
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.raidamonteiropsi.com.br"
 ).replace(/\/$/, "");
 
 /**
@@ -69,9 +69,6 @@ export const siteConfig = {
     whatsapp: phoneDigits,
   },
 
-  /** TODO: e-mail real. */
-  email: "contato@drapaula.com.br",
-
   /**
    * Localizacao do atendimento presencial, sem rua.
    *
@@ -114,6 +111,12 @@ export const siteConfig = {
   stats: {
     yearsOfExperience: "32",
     patients: "500+",
+  },
+
+  /** Credito de desenvolvimento, exibido na linha inferior do rodape. */
+  developer: {
+    name: "AMacielTecnologia",
+    url: "https://amacieltecnologia.dev.br",
   },
 
   /**

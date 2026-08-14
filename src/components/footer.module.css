@@ -91,9 +91,40 @@
   }
 }
 
+.bottomLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 48rem) {
+  .bottomLeft {
+    align-items: flex-start;
+  }
+}
+
 .copyright {
   font-size: var(--text-sm);
   color: var(--on-dark-muted);
+}
+
+.credit {
+  composes: copyright;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color var(--transition);
+}
+
+.credit:hover {
+  color: var(--on-dark-strong);
+}
+
+.creditMark {
+  height: 1.125rem;
+  width: auto;
+  flex-shrink: 0;
 }
 
 .madeWith {

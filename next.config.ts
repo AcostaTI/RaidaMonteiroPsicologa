@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Gera .next/standalone com um server.js e só as dependências usadas — é o que o
+  // Dockerfile copia para a imagem final. Não altera a renderizacao estática das rotas.
+  output: "standalone",
   reactStrictMode: true,
   poweredByHeader: false,
   images: {

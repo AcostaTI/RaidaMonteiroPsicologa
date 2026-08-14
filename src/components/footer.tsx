@@ -1,4 +1,5 @@
 import { Facebook, Heart, Instagram } from "lucide-react";
+import { AmacielMark } from "@/components/amaciel-mark";
 import { Brand } from "@/components/brand";
 import { siteConfig } from "@/config/site";
 import { hasLogoFile } from "@/lib/logo";
@@ -68,9 +69,20 @@ export function Footer() {
         </div>
 
         <div className={s.bottom}>
-          <p className={s.copyright}>
-            © {year} {siteConfig.name}. Todos os direitos reservados.
-          </p>
+          <div className={s.bottomLeft}>
+            <p className={s.copyright}>
+              © {year} {siteConfig.name}. Todos os direitos reservados.
+            </p>
+            <a
+              href={siteConfig.developer.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={s.credit}
+            >
+              <AmacielMark className={s.creditMark} />
+              <span>Desenvolvido por {siteConfig.developer.name}</span>
+            </a>
+          </div>
           <p className={s.madeWith}>
             Feito com
             <Heart size={16} className={s.heart} aria-label="amor" />
