@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { JsonLd } from "@/components/json-ld";
 import { siteConfig, siteUrl } from "@/config/site";
 import "./globals.css";
@@ -90,6 +91,21 @@ export default function RootLayout({
         </a>
         {children}
         <JsonLd />
+        {/* Google tag (gtag.js) do Google Ads. afterInteractive nao bloqueia a renderizacao. */}
+        {siteConfig.googleAdsId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.googleAdsId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-ads-gtag" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${siteConfig.googleAdsId}');`}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );

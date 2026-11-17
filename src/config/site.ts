@@ -113,6 +113,9 @@ export const siteConfig = {
     patients: "500+",
   },
 
+  /** ID da tag do Google Ads (gtag.js). Deixe vazio para nao carregar a tag. */
+  googleAdsId: "AW-942920963",
+
   /** Credito de desenvolvimento, exibido na linha inferior do rodape. */
   developer: {
     name: "AMacielTecnologia",
